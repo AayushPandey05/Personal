@@ -224,9 +224,8 @@
   // ==================================
   const typedTextEl = document.getElementById("typed-text");
   const roles = [
-    "Student",
     "Developer",
-    "System Builder",
+    "Cloud Architect",
     "Problem Solver",
     "Cloud & System Security Enthusiast",
   ];
@@ -263,44 +262,45 @@
   }
   setTimeout(typeEffect, 1200);
 
-  // ==================================
-  //   TEXT SCRAMBLE EFFECT ON HOVER (desktop)
-  // ==================================
-  if (isDesktop) {
-    const scrambleEls = document.querySelectorAll("[data-scramble]");
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&";
+// ==================================
+//   TEXT SCRAMBLE ON PAGE LOAD
+// ==================================
 
-    scrambleEls.forEach((el) => {
-      const originalText = el.textContent;
-      let scrambleInterval;
+const scrambleEls = document.querySelectorAll("[data-scramble]");
+const chars =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-      el.addEventListener("mouseenter", () => {
-        let iteration = 0;
-        clearInterval(scrambleInterval);
-        scrambleInterval = setInterval(() => {
-          el.textContent = originalText
-            .split("")
-            .map((char, index) => {
-              if (index < iteration) return originalText[index];
-              return chars[Math.floor(Math.random() * chars.length)];
-            })
-            .join("");
-          iteration += 1 / 2;
-          if (iteration >= originalText.length) {
-            clearInterval(scrambleInterval);
-            el.textContent = originalText;
-          }
-        }, 40);
-      });
+function scrambleText(el) {
+  const originalText = el.textContent;
+  let iteration = 0;
 
-      el.addEventListener("mouseleave", () => {
-        clearInterval(scrambleInterval);
-        el.textContent = originalText;
-      });
-    });
-  }
+  const interval = setInterval(() => {
+    el.textContent = originalText
+      .split("")
+      .map((char, index) => {
+        if (index < iteration) return originalText[index];
+        return chars[Math.floor(Math.random() * chars.length)];
+      })
+      .join("");
 
+    iteration += 0.5;
+
+    if (iteration >= originalText.length) {
+      clearInterval(interval);
+      el.textContent = originalText;
+    }
+  }, 40);
+}
+
+setTimeout(() => {
+  scrambleEls.forEach((el, i) => {
+    setTimeout(() => {
+      scrambleText(el);
+    }, i * 300);
+  });
+}, 1200);
+
+  
   // ==================================
   //   3D TILT EFFECT ON CARDS (desktop only)
   // ==================================

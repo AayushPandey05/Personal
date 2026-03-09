@@ -224,9 +224,8 @@
   // ==================================
   const typedTextEl = document.getElementById("typed-text");
   const roles = [
-    "Student",
-    "Backend Developer",
-    "Cloud & DevOps,
+    "Developer",
+    "Cloud Architect",
     "Problem Solver",
     "Cloud & System Security Enthusiast",
   ];

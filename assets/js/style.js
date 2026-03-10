@@ -630,7 +630,7 @@
         btn.textContent = originalText;
         btn.parentElement.style.background = "";
         contactForm.reset();
-      }, 2500);
+      }, 1100);
     });
   }
 

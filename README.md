@@ -4,7 +4,7 @@ Welcome to my personal portfolio website!
 This project showcases my skills, projects, certifications, and learning journey as a Computer Science student interested in building systems and exploring cloud technologies.
 
 🌐 **Live Website:**
-https://aayushpandey05.github.io/Personal_Portfolio/
+https://www.heyitsaayush.me
 
 ---
 

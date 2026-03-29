@@ -226,8 +226,6 @@
   const roles = [
     "Backend Developer",
     "Student",
-    "Cloud & DevOps",
-    "Problem Solver",
     "Cloud & System Security Enthusiast",
   ];
   let roleIndex = 0;
